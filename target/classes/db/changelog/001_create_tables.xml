@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="test">
+        <preConditions onFail="HALT">
+            <not>
+                <tableExists tableName="users"/>
+            </not>
+        </preConditions>
+        <createTable tableName="users">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_birth" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="test">
+        <preConditions onFail="HALT">
+            <not>
+                <tableExists tableName="account"/>
+            </not>
+        </preConditions>
+        <createTable tableName="account">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="balance" type="decimal(19,2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="account" columnNames="user_id" constraintName="uk_account_user_id"/>
+        <addForeignKeyConstraint constraintName="fk_account_user"
+                                 baseTableName="account"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+
+    <changeSet id="3" author="test">
+        <preConditions onFail="HALT">
+            <not>
+                <tableExists tableName="email_data"/>
+            </not>
+        </preConditions>
+        <createTable tableName="email_data">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="email_data" columnNames="email" constraintName="uk_email_data_email"/>
+        <addForeignKeyConstraint constraintName="fk_email_data_user"
+                                 baseTableName="email_data"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+
+    <changeSet id="4" author="test">
+        <preConditions onFail="HALT">
+            <not>
+                <tableExists tableName="phone_data"/>
+            </not>
+        </preConditions>
+        <createTable tableName="phone_data">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="varchar(13)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="phone_data" columnNames="phone" constraintName="uk_phone_data_phone"/>
+        <addForeignKeyConstraint constraintName="fk_phone_data_user"
+                                 baseTableName="phone_data"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+</databaseChangeLog>

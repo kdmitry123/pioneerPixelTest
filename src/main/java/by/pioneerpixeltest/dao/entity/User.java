@@ -1,0 +1,49 @@
+package by.pioneerpixeltest.dao.entity;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+@Entity
+@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
+public class User {
+
+    @Id
+    @UuidGenerator
+    @Column(name = "id", updatable = false)
+    protected UUID id;
+
+    @Column(nullable = false, length = 500)
+    private String name;
+
+    @Column(name = "date_of_birth", nullable = false)
+    private ZonedDateTime dateOfBirth;
+
+    @Column(nullable = false, length = 500)
+    private String password;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private Account account;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<EmailData> emailData = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<PhoneData> phoneData = new ArrayList<>();
+}
