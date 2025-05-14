@@ -1,15 +1,16 @@
 package by.pioneerpixeltest.controller;
 
 import by.pioneerpixeltest.dao.dto.UserDto;
+import by.pioneerpixeltest.dao.dto.UserSearchDto;
+import by.pioneerpixeltest.dao.entity.User;
 import by.pioneerpixeltest.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -22,11 +23,11 @@ public class UserController {
 
     private final UserService userService;
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
-//        return ResponseEntity.ok(userService.updateUser(id, userDto));
+//    @PutMapping
+//    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
+//        return ResponseEntity.ok(userService.updateUser(userDto));
 //    }
-//
+
 //    @PostMapping("/{fromUserId}/transfer/{toUserId}")
 //    public ResponseEntity<Void> transferMoney(
 //            @PathVariable Long fromUserId,
@@ -40,5 +41,11 @@ public class UserController {
     public ResponseEntity<UserDto> getUserById(@PathVariable UUID id) {
         log.info("UserController: getUserById: receive id: {}", id);
         return ResponseEntity.ok(userService.getUserById(id));
+    }
+
+    @GetMapping
+    public Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable) {
+        log.info("UserController: searchUsers: receive searchDto: {}", searchDto);
+        return userService.searchUsers(searchDto, pageable);
     }
 }

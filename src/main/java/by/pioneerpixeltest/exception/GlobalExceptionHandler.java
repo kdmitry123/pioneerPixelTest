@@ -30,4 +30,19 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST
         );
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<BaseErrorResponse> handleDifferentException(Exception ex) {
+        log.error("Something went wrong: {}", ex.getMessage(), ex);
+        return new ResponseEntity<>(
+                new BaseErrorResponse(
+                        ZonedDateTime.now(),
+                        HttpStatus.BAD_REQUEST.value(),
+                        "some_error",
+                        ex.getMessage()
+                ),
+                new HttpHeaders(),
+                HttpStatus.BAD_REQUEST
+        );
+    }
 }

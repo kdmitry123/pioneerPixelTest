@@ -2,15 +2,17 @@ package by.pioneerpixeltest.service.impl;
 
 
 import by.pioneerpixeltest.dao.dto.UserDto;
-import by.pioneerpixeltest.dao.entity.User;
+import by.pioneerpixeltest.dao.dto.UserSearchDto;
 import by.pioneerpixeltest.mapper.UserMapper;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.UserService;
-import by.pioneerpixeltest.util.ValidationUtil;
+import by.pioneerpixeltest.util.UserSpecification;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -93,5 +95,11 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
-    
+    @Override
+    @Transactional
+    @Cacheable(value = "users", key = "#searchDto.toString()")
+    public Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable) {
+        return userRepository.findAll(UserSpecification.userFilter(searchDto), pageable)
+                .map(UserMapper::convertToDto);
+    }
 }

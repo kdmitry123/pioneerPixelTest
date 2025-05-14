@@ -1,6 +1,7 @@
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\config\SwaggerConfig.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\controller\UserController.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\dao\dto\UserDto.java
+D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\dao\dto\UserSearchDto.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\dao\entity\Account.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\dao\entity\EmailData.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\dao\entity\PhoneData.java
@@ -13,4 +14,5 @@ D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\PioneerpixeltestAppli
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\repository\UserRepository.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\service\impl\UserServiceImpl.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\service\UserService.java
+D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\util\UserSpecification.java
 D:\work\pioneerPixelTest\src\main\java\by\pioneerpixeltest\util\ValidationUtil.java
