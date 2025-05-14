@@ -26,7 +26,7 @@ public class User {
     @Column(name = "id", updatable = false)
     protected UUID id;
 
-    @Column(nullable = false, length = 500)
+    @Column(nullable = false, length = 500, unique = true)
     private String name;
 
     @Column(name = "date_of_birth", nullable = false)
