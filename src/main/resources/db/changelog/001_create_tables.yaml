@@ -1,0 +1,415 @@
+databaseChangeLog:
+  - logicalFilePath: no-path
+  - changeSet:
+      id: create-table-users
+      author: test
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: users
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: date_of_birth
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-table-account
+      author: test
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: account
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: decimal(19,2)
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName: account
+            columnNames: user_id
+            constraintName: uk_account_user_id
+        - addForeignKeyConstraint:
+            constraintName: fk_account_user
+            baseTableName: account
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+  - changeSet:
+      id: create-table-email-data
+      author: test
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: email_data
+      changes:
+        - createTable:
+            tableName: email_data
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName: email_data
+            columnNames: email
+            constraintName: uk_email_data_email
+        - addForeignKeyConstraint:
+            constraintName: fk_email_data_user
+            baseTableName: email_data
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+  - changeSet:
+      id: create-table-phone-data
+      author: test
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: phone_data
+      changes:
+        - createTable:
+            tableName: phone_data
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone
+                  type: varchar(13)
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName: phone_data
+            columnNames: phone
+            constraintName: uk_phone_data_phone
+        - addForeignKeyConstraint:
+            constraintName: fk_phone_data_user
+            baseTableName: phone_data
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+  - changeSet:
+      id: insert-users-data
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: users
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'test1', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'test2', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'test3', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 'test4', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c4', 'test5', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c3', 'test6', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c2', 'test7', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('c8a195d0-c33f-4768-8b5b-200f68a92e58', 'test8', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fbf003c0-bab7-4a11-acf4-4fc23e4164b1', 'test9', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('4d63e2a9-50b0-4cec-a379-54fa5cbeb19c', 'test10', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('2fc9f374-5ec0-4b4b-b5c9-275dcffde074', 'test11', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('a5e7094e-ec18-43ee-b1c3-603a790d6e47', 'test12', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('e6e0a3b1-f0fb-4ee2-9fd6-9c7cbda1e6a6', 'test13', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('32574a34-dbe9-4e1d-b3de-7faa53f4f771', 'test14', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('b2347fb1-4e23-4af6-90ef-6c75f4bd577e', 'test15', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('a3583a3f-3daf-48a1-967e-7a665d348d6e', 'test16', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('9d665638-1d7e-45fd-97d5-7acc1d8ef18f', 'test17', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('e4d5b81d-87ad-42dc-96e7-5e1ccaf3bbd3', 'test18', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('fed1a6db-d3ad-4e75-a2a1-2f69e3b7c671', 'test19', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('123b6afb-9474-4a47-84ce-c362ee845a12', 'test20', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('3fafe4d1-a653-45e4-b907-5a7d466954fc', 'test21', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('d4ce6854-39c8-47be-b915-96f4e2a65d44', 'test22', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('87c53c99-0d4d-477f-b095-9baa1c57d3e4', 'test23', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('1c9ee9e9-2c5a-46d4-89d4-953d3eb3b7f5', 'test24', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('9f6f23c2-7a2b-4c42-9e7a-4333e50f2ec4', 'test25', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', 'test26', '1990-05-13 10:20:17.000000', 'test');
+              INSERT INTO public.users (id, name, date_of_birth, password)
+              VALUES ('48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 'test27', '1990-05-13 10:20:17.000000', 'test');
+
+  - changeSet:
+      id: insert-account-data
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: account
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 10.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 20.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 30.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 35.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('58b39d7c-1b7a-4f2e-9eac-8b20328fd459', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c4', 18.47);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('9bde7f3a-3ccd-41bd-a3d2-dc2df8a3b5a1', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c3', 5.32);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('a12f40e8-86f8-4b7c-8f7a-9f4e264b1587', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c2', 28.56);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('d4a586d3-e2b9-46eb-98a7-c909a2e351c9', 'c8a195d0-c33f-4768-8b5b-200f68a92e58', 0.75);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('b8e0c2f7-3603-437a-8fc6-2b1a2b7d4f5c', 'fbf003c0-bab7-4a11-acf4-4fc23e4164b1', 12.30);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('35e8c9d5-fcb2-49d7-b3a0-3cbd8cc48ffe', '4d63e2a9-50b0-4cec-a379-54fa5cbeb19c', 29.99);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('f9684212-8df9-4d74-9b8e-a2932d657b77', '2fc9f374-5ec0-4b4b-b5c9-275dcffde074', 7.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('14f9cccb-559f-4a4e-8d0d-d2d32a274745', 'a5e7094e-ec18-43ee-b1c3-603a790d6e47', 21.11);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('7dcf01e4-6bbc-4256-9c6a-c1f0a6d05f0a', 'e6e0a3b1-f0fb-4ee2-9fd6-9c7cbda1e6a6', 3.45);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('21d8a5b4-0841-4466-91c5-320b8a2f9f2e', '32574a34-dbe9-4e1d-b3de-7faa53f4f771', 16.92);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('f0d7c7e5-27de-4023-9c8d-5a0231f3a877', 'b2347fb1-4e23-4af6-90ef-6c75f4bd577e', 25.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('c23d3f81-ea5c-45e0-b671-ef67a7c9be12', 'a3583a3f-3daf-48a1-967e-7a665d348d6e', 10.53);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('bd137a3d-1f5b-4ed7-bf3f-926f304fcbf7', '9d665638-1d7e-45fd-97d5-7acc1d8ef18f', 8.44);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('ddc4f5e9-657a-41d8-a6e2-0a87d2be6b2f', 'e4d5b81d-87ad-42dc-96e7-5e1ccaf3bbd3', 2.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('e872f60e-9a56-4aee-8a8f-bd3c1960fe6d', 'fed1a6db-d3ad-4e75-a2a1-2f69e3b7c671', 19.99);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('44da2a8e-3b90-44d2-bb4f-1d0e6e3f2e1c', '123b6afb-9474-4a47-84ce-c362ee845a12', 14.28);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('3e9838a5-477d-48e1-823d-5a2a5c6a3e5f', '3fafe4d1-a653-45e4-b907-5a7d466954fc', 4.75);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('6fda1e5c-3758-4daf-a8bd-ef5c3b945081', 'd4ce6854-39c8-47be-b915-96f4e2a65d44', 30.00);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('8bcb62fc-a395-4b2d-adc5-3c4e9dafe435', '87c53c99-0d4d-477f-b095-9baa1c57d3e4', 11.06);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('7d1f4555-d1e7-4c6d-bd6b-1a3542e9a8f7', '1c9ee9e9-2c5a-46d4-89d4-953d3eb3b7f5', 27.32);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('0c3fad5a-6e10-4c1e-90a3-0836fd81dfe1', '9f6f23c2-7a2b-4c42-9e7a-4333e50f2ec4', 6.66);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('319bfc28-2f2e-44bb-a45a-c8ef2d79a4d3', '74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', 9.80);
+              INSERT INTO public.account (id, user_id, balance)
+              VALUES ('1eec9a2f-f06e-4e2a-ade7-ed5f60a3ce0d', '48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 15.37);   
+
+  - changeSet:
+      id: insert-email-data
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: email_data
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'test1@test.rt');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'test2@test.rt');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'test3@test.rt');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'test4@test.rt');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c4', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'test5@test.rt');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('f43aa8f5-463d-4a7f-a826-90f4fa365d95', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c3', 'user63@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('a9b63025-4293-4e7d-a4e3-7e0d3a4bfd8a', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c2', 'alice27@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('d7eae89b-3e04-4ce2-9a7e-2f68465fbe6a', 'c8a195d0-c33f-4768-8b5b-200f68a92e58', 'user42@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('42c3a482-8f82-463a-9a9b-7c2a6e09d3d0', 'fbf003c0-bab7-4a11-acf4-4fc23e4164b1', 'bob53@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('3c2d9cef-003e-4db5-ad81-4e4eab591db6', '4d63e2a9-50b0-4cec-a379-54fa5cbeb19c', 'charlie89@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('a1b4d8e6-9e3c-414e-8f77-1c27ef7f9d22', '2fc9f374-5ec0-4b4b-b5c9-275dcffde074', 'delta34@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('5f3cb1a8-0d71-46c9-b3ac-d2ff09c3e7bb', 'a5e7094e-ec18-43ee-b1c3-603a790d6e47', 'echo77@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('b788f112-6ceb-4c38-8af9-bf1f63b8b9c3', 'e6e0a3b1-f0fb-4ee2-9fd6-9c7cbda1e6a6', 'foxtrot21@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('7d9b68d1-1ed2-4e0a-b82e-3a9f850d9e13', '32574a34-dbe9-4e1d-b3de-7faa53f4f771', 'golf12@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('2dda0e5f-3bfa-4dba-af91-0f326b735c51', 'b2347fb1-4e23-4af6-90ef-6c75f4bd577e', 'hotel99@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('9802db4c-0f64-4a57-84c8-7db456c2d2c5', 'a3583a3f-3daf-48a1-967e-7a665d348d6e', 'india45@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('c7e8d1b3-2f41-4af5-9e7e-5c9a58e0c4f3', '9d665638-1d7e-45fd-97d5-7acc1d8ef18f', 'juliet66@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('e1a9cffb-55d6-40c7-bb1b-e3e6b64f8abb', 'e4d5b81d-87ad-42dc-96e7-5e1ccaf3bbd3', 'kilo38@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('af7c2b19-ed35-455d-ac62-0fcb515e7e1d', 'fed1a6db-d3ad-4e75-a2a1-2f69e3b7c671', 'lima54@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('d5b5ecd7-5599-4568-a975-2b2aff54c9e0', '123b6afb-9474-4a47-84ce-c362ee845a12', 'mike78@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('911f41b9-d997-4c62-bf28-3f6c1d6c9d2b', '3fafe4d1-a653-45e4-b907-5a7d466954fc', 'november11@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('69dcf8e5-b757-4d2d-955d-3a6b34c064fa', 'd4ce6854-39c8-47be-b915-96f4e2a65d44', 'oscar90@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('3a8c2f7d-1f9a-4f1e-bd37-92f5e90cdd01', '87c53c99-0d4d-477f-b095-9baa1c57d3e4', 'papa27@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('f592c84f-4a6c-4b1b-9b5b-1daf2f9c2fd8', '1c9ee9e9-2c5a-46d4-89d4-953d3eb3b7f5', 'quebec14@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('8f6ae3c1-6e0b-4adf-8d86-2ff4de174f2a', '9f6f23c2-7a2b-4c42-9e7a-4333e50f2ec4', 'romeo33@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('4e9b8c6d-1dab-4ec4-9f9d-93d2a2db5c7a', '74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', 'sierra52@example.com');
+              INSERT INTO public.email_data (id, user_id, email)
+              VALUES ('2c7baf51-89d3-4ce7-b328-3a0b8b7d34e5', '48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 'tango66@example.com');
+
+  - changeSet:
+      id: insert-phone-data
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: phone_data
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', '123456789');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c7', '213456789');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c6', '312456789');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', '113456789');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c4', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c8', '111456789');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('ed820508-10ca-4d66-9b67-f6edc331ea3b', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c3', '485729364');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('a4b24873-3c37-47f6-a3a4-d1fb62c6b82a', 'fea81f3e-c260-46e3-8ecb-acdc3664b1c2', '392847165');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('f7c2b5a1-82b2-4fc0-9a8d-51d5a0bf416d', 'c8a195d0-c33f-4768-8b5b-200f68a92e58', '147258369');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('1bb36039-5a81-44f8-9d80-1fedb063bfa7', 'fbf003c0-bab7-4a11-acf4-4fc23e4164b1', '867530912');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('fae1d3a2-2445-4ccf-8e55-58d720e7b9b9', '4d63e2a9-50b0-4cec-a379-54fa5cbeb19c', '234567890');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('9e89f2dd-5b83-4c69-b1c3-ba667e78fc2d', '2fc9f374-5ec0-4b4b-b5c9-275dcffde074', '345678901');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('82c58a47-1e60-413b-8ec6-0c7e5f0b12d1', 'a5e7094e-ec18-43ee-b1c3-603a790d6e47', '456789012');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('7268a9d5-b3d3-4e97-a2c3-4c8b0e67f444', 'e6e0a3b1-f0fb-4ee2-9fd6-9c7cbda1e6a6', '567890123');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('c3f577c7-c3bd-4f87-a55c-391ce4c7a7d3', '32574a34-dbe9-4e1d-b3de-7faa53f4f771', '678901234');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('3d2e7f1a-a8f2-4ae3-b7ab-ee71cfb60fbb', 'b2347fb1-4e23-4af6-90ef-6c75f4bd577e', '789012345');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('8a2d01b5-e8f5-4e8a-9819-fea5dcf4b2cb', 'a3583a3f-3daf-48a1-967e-7a665d348d6e', '890123456');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('e7a9cc9e-8854-49b2-9e53-1b5a4d9d5b3a', '9d665638-1d7e-45fd-97d5-7acc1d8ef18f', '901234567');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('b4c5e234-2d21-4d50-9c69-1151ed3353c1', 'e4d5b81d-87ad-42dc-96e7-5e1ccaf3bbd3', '112233445');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('6dd2e47e-e1a6-4dbf-87de-f4d0e299bf47', 'fed1a6db-d3ad-4e75-a2a1-2f69e3b7c671', '223344556');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('f9b2c9ed-9c31-442a-a3c6-57c3e5783e3f', '123b6afb-9474-4a47-84ce-c362ee845a12', '334455667');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('a5e7bfe0-7250-4681-b82c-da32eabe1a41', '3fafe4d1-a653-45e4-b907-5a7d466954fc', '445566778');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('ca43e858-43e4-4be9-b982-57d5f8fa3c53', 'd4ce6854-39c8-47be-b915-96f4e2a65d44', '556677889');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('b1e25f7f-e928-4cc4-9e37-974f42aa7e2c', '87c53c99-0d4d-477f-b095-9baa1c57d3e4', '667788990');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('d37f98b2-8fca-45ea-8495-e6b3c4f9a3f2', '1c9ee9e9-2c5a-46d4-89d4-953d3eb3b7f5', '778899001');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('ec67f014-b3ba-4f5a-b7d6-a9d13bed198f', '9f6f23c2-7a2b-4c42-9e7a-4333e50f2ec4', '889900112');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('d90b5f33-63ab-4afb-bc9b-bfafe6c8b7e1', '74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', '990011223');
+              INSERT INTO public.phone_data (id, user_id, phone)
+              VALUES ('f1d9b9e6-2810-434b-af75-df5b8a2ab5d4', '48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', '101112131');

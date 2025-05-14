@@ -8,7 +8,7 @@ spring:
   liquibase:
     enabled: true
     drop-first: false
-    change-log: classpath:db/changelog/changelog-master.xml
+    change-log: classpath:db/changelog/changelog-master.yaml
     default-schema: public
     liquibase-schema: public
 
@@ -28,9 +28,3 @@ spring:
         format_sql: true
         default_schema: public
     open-in-view: false
-
-#logging:
-#  level:
-#    root: INFO
-#    ru.oriflame.ecommerce.ms.product: INFO
-
