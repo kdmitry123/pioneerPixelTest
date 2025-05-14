@@ -6,6 +6,11 @@
 /home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/dao/entity/EmailData.java
 /home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/dao/entity/PhoneData.java
 /home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/dao/entity/User.java
+/home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/exception/BaseErrorResponse.java
+/home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/exception/GlobalExceptionHandler.java
+/home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/exception/UserValidationException.java
+/home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/mapper/UserMapper.java
 /home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/repository/UserRepository.java
 /home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/service/UserService.java
 /home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java
+/home/neshta/pioneerPixelTest/src/main/java/by/pioneerpixeltest/util/ValidationUtil.java

@@ -7,11 +7,10 @@ import java.util.UUID;
 
 public interface UserService {
 
-    UserDto createUser(UserDto userDto);
 
-    UserDto updateUser(Long id, UserDto userDto);
+    UserDto updateUser(UserDto userDto);
 
-    void transferMoney(Long fromUserId, Long toUserId, BigDecimal amount);
+    void transferMoney(UUID fromUserId, UUID toUserId, BigDecimal amount);
 
     UserDto getUserById(UUID id);
 }

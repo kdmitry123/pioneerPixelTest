@@ -4,24 +4,23 @@ package by.pioneerpixeltest.controller;
 import by.pioneerpixeltest.dao.dto.UserDto;
 import by.pioneerpixeltest.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
 
     private final UserService userService;
 
-//    @PostMapping
-//    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
-//        return ResponseEntity.ok(userService.createUser(userDto));
-//    }
-//
 //    @PutMapping("/{id}")
 //    public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
 //        return ResponseEntity.ok(userService.updateUser(id, userDto));
@@ -37,7 +36,8 @@ public class UserController {
 //    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUser(@PathVariable UUID id) {
+    public ResponseEntity<UserDto> getUserById(@PathVariable UUID id) {
+        log.info("UserController: getUserById: receive id: {}", id);
         return ResponseEntity.ok(userService.getUserById(id));
     }
 }
