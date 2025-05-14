@@ -2,6 +2,8 @@ package by.pioneerpixeltest.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,5 +31,7 @@ public class Account {
     private User user;
 
     @Column(nullable = false, precision = 19, scale = 2)
+    @NotNull
+    @DecimalMin(value = "0.00")
     private BigDecimal balance;
 }

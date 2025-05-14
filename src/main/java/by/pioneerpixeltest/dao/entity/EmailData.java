@@ -1,6 +1,11 @@
 package by.pioneerpixeltest.dao.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +30,7 @@ public class EmailData {
     private UUID userId;
 
     @Column(nullable = false, length = 200, unique = true)
+    @NotBlank(message = "Email не может быть пустым")
+    @Pattern(regexp = "^[A-Za-z0-9][A-Za-z0-9+_.-]*@[A-Za-z0-9.-]+$", message = "Email должен быть в корректном формате и начинаться с буквы или цифры")
     private String email;
 }

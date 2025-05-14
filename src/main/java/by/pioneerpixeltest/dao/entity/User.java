@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +30,8 @@ public class User {
     private String name;
 
     @Column(name = "date_of_birth", nullable = false)
-    private ZonedDateTime dateOfBirth;
+    @Temporal(TemporalType.DATE)
+    private LocalDate dateOfBirth;
 
     @Column(nullable = false, length = 500)
     private String password;

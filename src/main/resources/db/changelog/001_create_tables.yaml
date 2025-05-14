@@ -26,7 +26,7 @@ databaseChangeLog:
                     unique: true
               - column:
                   name: date_of_birth
-                  type: timestamp
+                  type: date
                   constraints:
                     nullable: false
               - column:
@@ -165,59 +165,59 @@ databaseChangeLog:
         - sql:
             sql: |
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'test1', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c8', 'test1', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'test2', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c7', 'test2', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'test3', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c6', 'test3', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 'test4', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c5', 'test4', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c4', 'test5', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c4', 'test5', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c3', 'test6', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c3', 'test6', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c2', 'test7', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fea81f3e-c260-46e3-8ecb-acdc3664b1c2', 'test7', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('c8a195d0-c33f-4768-8b5b-200f68a92e58', 'test8', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('c8a195d0-c33f-4768-8b5b-200f68a92e58', 'test8', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fbf003c0-bab7-4a11-acf4-4fc23e4164b1', 'test9', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fbf003c0-bab7-4a11-acf4-4fc23e4164b1', 'test9', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('4d63e2a9-50b0-4cec-a379-54fa5cbeb19c', 'test10', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('4d63e2a9-50b0-4cec-a379-54fa5cbeb19c', 'test10', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('2fc9f374-5ec0-4b4b-b5c9-275dcffde074', 'test11', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('2fc9f374-5ec0-4b4b-b5c9-275dcffde074', 'test11', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('a5e7094e-ec18-43ee-b1c3-603a790d6e47', 'test12', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('a5e7094e-ec18-43ee-b1c3-603a790d6e47', 'test12', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('e6e0a3b1-f0fb-4ee2-9fd6-9c7cbda1e6a6', 'test13', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('e6e0a3b1-f0fb-4ee2-9fd6-9c7cbda1e6a6', 'test13', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('32574a34-dbe9-4e1d-b3de-7faa53f4f771', 'test14', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('32574a34-dbe9-4e1d-b3de-7faa53f4f771', 'test14', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('b2347fb1-4e23-4af6-90ef-6c75f4bd577e', 'test15', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('b2347fb1-4e23-4af6-90ef-6c75f4bd577e', 'test15', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('a3583a3f-3daf-48a1-967e-7a665d348d6e', 'test16', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('a3583a3f-3daf-48a1-967e-7a665d348d6e', 'test16', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('9d665638-1d7e-45fd-97d5-7acc1d8ef18f', 'test17', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('9d665638-1d7e-45fd-97d5-7acc1d8ef18f', 'test17', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('e4d5b81d-87ad-42dc-96e7-5e1ccaf3bbd3', 'test18', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('e4d5b81d-87ad-42dc-96e7-5e1ccaf3bbd3', 'test18', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('fed1a6db-d3ad-4e75-a2a1-2f69e3b7c671', 'test19', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('fed1a6db-d3ad-4e75-a2a1-2f69e3b7c671', 'test19', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('123b6afb-9474-4a47-84ce-c362ee845a12', 'test20', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('123b6afb-9474-4a47-84ce-c362ee845a12', 'test20', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('3fafe4d1-a653-45e4-b907-5a7d466954fc', 'test21', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('3fafe4d1-a653-45e4-b907-5a7d466954fc', 'test21', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('d4ce6854-39c8-47be-b915-96f4e2a65d44', 'test22', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('d4ce6854-39c8-47be-b915-96f4e2a65d44', 'test22', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('87c53c99-0d4d-477f-b095-9baa1c57d3e4', 'test23', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('87c53c99-0d4d-477f-b095-9baa1c57d3e4', 'test23', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('1c9ee9e9-2c5a-46d4-89d4-953d3eb3b7f5', 'test24', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('1c9ee9e9-2c5a-46d4-89d4-953d3eb3b7f5', 'test24', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('9f6f23c2-7a2b-4c42-9e7a-4333e50f2ec4', 'test25', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('9f6f23c2-7a2b-4c42-9e7a-4333e50f2ec4', 'test25', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', 'test26', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', 'test26', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 'test27', '1990-05-13 10:20:17.000000', 'test');
+              VALUES ('48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 'test27', '1990-05-13', 'test');
 
   - changeSet:
       id: insert-account-data

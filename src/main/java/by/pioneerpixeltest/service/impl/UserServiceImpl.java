@@ -92,4 +92,6 @@ public class UserServiceImpl implements UserService {
                 .map(UserMapper::convertToDto)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
+
+    
 }
