@@ -2,7 +2,6 @@ package by.pioneerpixeltest.controller;
 
 import by.pioneerpixeltest.dao.dto.UserDto;
 import by.pioneerpixeltest.dao.dto.UserSearchDto;
-import by.pioneerpixeltest.dao.entity.User;
 import by.pioneerpixeltest.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,15 +17,15 @@ import java.util.UUID;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 @Slf4j
-@Validated
 public class UserController {
 
     private final UserService userService;
 
-//    @PutMapping
-//    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
-//        return ResponseEntity.ok(userService.updateUser(userDto));
-//    }
+    @PutMapping
+    public ResponseEntity<UserDto> updateUser(@RequestBody @Validated UserDto userDto) {
+        log.info("UserController: updateUser: receive userDto: {}", userDto);
+        return ResponseEntity.ok(userService.updateUser(userDto));
+    }
 
 //    @PostMapping("/{fromUserId}/transfer/{toUserId}")
 //    public ResponseEntity<Void> transferMoney(

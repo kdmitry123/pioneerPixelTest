@@ -3,19 +3,26 @@ package by.pioneerpixeltest.service.impl;
 
 import by.pioneerpixeltest.dao.dto.UserDto;
 import by.pioneerpixeltest.dao.dto.UserSearchDto;
+import by.pioneerpixeltest.dao.entity.EmailData;
+import by.pioneerpixeltest.dao.entity.PhoneData;
+import by.pioneerpixeltest.dao.entity.User;
+import by.pioneerpixeltest.exception.UserValidationException;
 import by.pioneerpixeltest.mapper.UserMapper;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.UserService;
 import by.pioneerpixeltest.util.UserSpecification;
+import by.pioneerpixeltest.util.ValidationUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -26,8 +33,16 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
+    @Transactional
+    @CachePut(value = "users", key = "#userDto.id")
     public UserDto updateUser(UserDto userDto) {
-        return null;
+        ValidationUtil.validateUserDataForUpdate(userDto);
+        User user = userRepository.findById(userDto.getId())
+                .orElseThrow(() -> {
+                    log.info("User with id = {} not found", userDto.getId());
+                    return new UserValidationException("User not found");
+                });
+        return UserMapper.convertToDto(updateUserFields(user, userDto));
     }
 
     @Override
@@ -35,58 +50,6 @@ public class UserServiceImpl implements UserService {
 
     }
 
-//    @Override
-//    @Transactional
-//    @CacheEvict(value = "users", key = "#id")
-//    public UserDto updateUser(Long id, UserDto userDto) {
-//        User user = userRepository.findById(id)
-//                .orElseThrow(() -> new RuntimeException("User not found"));
-//
-//        validateUserData(userDto);
-//
-//        user.setName(userDto.getName());
-//        user.setDateOfBirth(userDto.getDateOfBirth());
-////        user.getEmailData().clear();
-////        user.getEmailData().addAll(userDto.getEmails().stream()
-////                .map(email -> {
-////                    EmailData emailData = new EmailData();
-////                    emailData.setEmail(email);
-////                    return emailData;
-////                })
-////                .toList());
-////
-////        user.getPhoneData().clear();
-////        user.getPhoneData().addAll(userDto.getPhones().stream()
-////                .map(phone -> {
-////                    PhoneData phoneData = new PhoneData();
-////                    phoneData.setPhone(phone);
-////                    return phoneData;
-////                })
-////                .toList());
-//
-//        User savedUser = userRepository.save(user);
-//        return convertToDto(savedUser);
-//    }
-//
-//    @Override
-//    @Transactional
-//    public void transferMoney(Long fromUserId, Long toUserId, BigDecimal amount) {
-//        User fromUser = userRepository.findById(fromUserId)
-//                .orElseThrow(() -> new RuntimeException("Source user not found"));
-//        User toUser = userRepository.findById(toUserId)
-//                .orElseThrow(() -> new RuntimeException("Target user not found"));
-//
-
-    /// /        if (fromUser.getAccount().getBalance().compareTo(amount) < 0) {
-    /// /            throw new RuntimeException("Insufficient funds");
-    /// /        }
-    /// /
-    /// /        fromUser.getAccount().setBalance(fromUser.getAccount().getBalance().subtract(amount));
-    /// /        toUser.getAccount().setBalance(toUser.getAccount().getBalance().add(amount));
-//
-//        userRepository.save(fromUser);
-//        userRepository.save(toUser);
-//    }
     @Cacheable(value = "users", key = "#id")
     @Transactional
     public UserDto getUserById(UUID id) {
@@ -102,4 +65,41 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(UserSpecification.userFilter(searchDto), pageable)
                 .map(UserMapper::convertToDto);
     }
+
+    private User updateUserFields(User user, UserDto userDto) {
+        if (userDto.getEmails() != null) {
+            ValidationUtil.validateEmailExistence(userDto, userRepository);
+            updateUserEmails(user, userDto.getEmails());
+        }
+        if (userDto.getPhones() != null) {
+            ValidationUtil.validatePhoneExistence(userDto, userRepository);
+            updateUserPhones(user, userDto.getPhones());
+        }
+        return userRepository.save(user);
+    }
+
+    private void updateUserEmails(User user, List<String> emails) {
+        user.getEmailData().clear();
+        user.getEmailData().addAll(emails.stream()
+                .map(email -> {
+                    EmailData emailData = new EmailData();
+                    emailData.setEmail(email);
+                    emailData.setUser(user);
+                    return emailData;
+                })
+                .toList());
+    }
+
+    private void updateUserPhones(User user, List<String> phones) {
+        user.getPhoneData().clear();
+        user.getPhoneData().addAll(phones.stream()
+                .map(phone -> {
+                    PhoneData phoneData = new PhoneData();
+                    phoneData.setPhone(phone);
+                    phoneData.setUser(user);
+                    return phoneData;
+                })
+                .toList());
+    }
+
 }

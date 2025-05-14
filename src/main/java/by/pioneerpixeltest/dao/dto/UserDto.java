@@ -1,5 +1,6 @@
 package by.pioneerpixeltest.dao.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Data
 @ToString
 public class UserDto implements Serializable {
+    @NotNull
     private UUID id;
     private String name;
     private LocalDate dateOfBirth;

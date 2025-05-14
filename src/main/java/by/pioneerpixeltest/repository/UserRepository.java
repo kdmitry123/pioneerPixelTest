@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID>, JpaSpecificationExecutor<User> {
 
-//    boolean existsByEmailDataEmail(String email);
+    boolean existsByEmailDataEmailAndIdNot(String email, UUID userId);
 
-//    boolean existsByPhoneDataPhone(String phone);
+    boolean existsByPhoneDataPhoneAndIdNot(String phone, UUID userId);
 }

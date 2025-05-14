@@ -34,6 +34,7 @@ databaseChangeLog:
                   type: varchar(500)
                   constraints:
                     nullable: false
+
   - changeSet:
       id: create-table-account
       author: test
@@ -62,17 +63,6 @@ databaseChangeLog:
                   type: decimal(19,2)
                   constraints:
                     nullable: false
-        - addUniqueConstraint:
-            tableName: account
-            columnNames: user_id
-            constraintName: uk_account_user_id
-        - addForeignKeyConstraint:
-            constraintName: fk_account_user
-            baseTableName: account
-            baseColumnNames: user_id
-            referencedTableName: users
-            referencedColumnNames: id
-            onDelete: CASCADE
 
   - changeSet:
       id: create-table-email-data
@@ -102,17 +92,6 @@ databaseChangeLog:
                   type: varchar(200)
                   constraints:
                     nullable: false
-        - addUniqueConstraint:
-            tableName: email_data
-            columnNames: email
-            constraintName: uk_email_data_email
-        - addForeignKeyConstraint:
-            constraintName: fk_email_data_user
-            baseTableName: email_data
-            baseColumnNames: user_id
-            referencedTableName: users
-            referencedColumnNames: id
-            onDelete: CASCADE
 
   - changeSet:
       id: create-table-phone-data
@@ -142,17 +121,6 @@ databaseChangeLog:
                   type: varchar(13)
                   constraints:
                     nullable: false
-        - addUniqueConstraint:
-            tableName: phone_data
-            columnNames: phone
-            constraintName: uk_phone_data_phone
-        - addForeignKeyConstraint:
-            constraintName: fk_phone_data_user
-            baseTableName: phone_data
-            baseColumnNames: user_id
-            referencedTableName: users
-            referencedColumnNames: id
-            onDelete: CASCADE
 
   - changeSet:
       id: insert-users-data

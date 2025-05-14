@@ -17,15 +17,16 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(exclude = "userId")
+@ToString(exclude = "user")
 public class PhoneData {
     @Id
     @UuidGenerator
     @Column(name = "id", updatable = false)
     private UUID id;
 
-    @Column(name = "user_id")
-    private UUID userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(nullable = false, length = 13, unique = true)
     @Size(max = 13, message = "Длина номера телефона не должна превышать 13 символов")
