@@ -10,6 +10,7 @@ import by.pioneerpixeltest.util.ValidationUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -84,7 +85,7 @@ public class UserServiceImpl implements UserService {
 //        userRepository.save(fromUser);
 //        userRepository.save(toUser);
 //    }
-//    @Cacheable(value = "users", key = "#id")
+    @Cacheable(value = "users", key = "#id")
     @Transactional
     public UserDto getUserById(UUID id) {
         return userRepository.findById(id)

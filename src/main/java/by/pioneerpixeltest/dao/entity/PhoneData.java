@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
+@ToString(exclude = "userId")
 public class PhoneData {
     @Id
     @UuidGenerator

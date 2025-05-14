@@ -1,15 +1,17 @@
 package by.pioneerpixeltest.dao.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
 
 @Data
-public class UserDto {
+@ToString
+public class UserDto implements Serializable {
     private UUID id;
     private String name;
     private LocalDate dateOfBirth;
