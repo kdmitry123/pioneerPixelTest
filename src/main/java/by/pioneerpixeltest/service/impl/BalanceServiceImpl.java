@@ -3,7 +3,7 @@ package by.pioneerpixeltest.service.impl;
 import by.pioneerpixeltest.dao.entity.User;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.BalanceService;
-import by.pioneerpixeltest.service.UserService;
+import by.pioneerpixeltest.util.UserCacheUtil;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.transaction.Transactional;
@@ -27,7 +27,7 @@ public class BalanceServiceImpl implements BalanceService {
     private final Map<UUID, BigDecimal> initialBalances = new ConcurrentHashMap<>();
     private final UserRepository userRepository;
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-    private final UserService userService;
+    private final UserCacheUtil userCacheUtil;
 
     @Value("${balance.increase-period:30}")
     private Integer period;
@@ -67,7 +67,7 @@ public class BalanceServiceImpl implements BalanceService {
             }
             if (increasedBalance.compareTo(maxBalance) <= 0) {
                 user.getAccount().setBalance(increasedBalance);
-                userService.saveAndCacheUser(user);
+                userCacheUtil.saveUser(user);
                 log.info("Increased balance for user {}: {} -> {}",
                         user.getId(), currentBalance, increasedBalance);
             } else {

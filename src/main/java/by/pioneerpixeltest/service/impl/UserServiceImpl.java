@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserById(UUID id) {
         return userRepository.findById(id)
                 .map(UserMapper::convertToDto)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserValidationException("User not found"));
     }
 
     @Override
@@ -61,11 +61,6 @@ public class UserServiceImpl implements UserService {
     public Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable) {
         return userRepository.findAll(UserSpecification.userFilter(searchDto), pageable)
                 .map(UserMapper::convertToDto);
-    }
-
-    @CachePut(value = "users", key = "#user.id")
-    public void saveAndCacheUser(User user) {
-        userRepository.save(user);
     }
 
     private User updateUserFields(User user, UserDto userDto) {

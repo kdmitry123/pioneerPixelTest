@@ -2,7 +2,6 @@ package by.pioneerpixeltest.service;
 
 import by.pioneerpixeltest.dao.dto.UserDto;
 import by.pioneerpixeltest.dao.dto.UserSearchDto;
-import by.pioneerpixeltest.dao.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,6 +13,4 @@ public interface UserService {
     UserDto getUserById(UUID id);
 
     Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable);
-
-    void saveAndCacheUser(User user);
 }

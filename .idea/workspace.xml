@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config" />
+    <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/UserServiceTestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,8 +39,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="balance-transfer" />
-                    <option name="lastUsedInstant" value="1747298272" />
+                    <option name="branchName" value="add-tests" />
+                    <option name="lastUsedInstant" value="1747310692" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
@@ -60,9 +63,6 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
-  <component name="MavenRunner">
-    <option name="skipTests" value="true" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -74,6 +74,46 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Docker.compose.yaml: Compose Deployment.executor": "Run",
+    "JUnit.BalanceServiceTest.executor": "Run",
+    "JUnit.BalanceServiceTest.increaseBalances_ShouldAdjustInitialBalanceIfZero.executor": "Run",
+    "JUnit.BalanceServiceTest.increaseBalances_ShouldHandleZeroBalance.executor": "Run",
+    "JUnit.BalanceServiceTest.increaseBalances_ShouldIncreaseBalanceWithinLimit.executor": "Run",
+    "JUnit.BalanceServiceTest.increaseBalances_ShouldNotExceedMaxBalance.executor": "Run",
+    "JUnit.BalanceServiceTest.increaseBalances_ShouldSetInitialBalanceForNewUser.executor": "Run",
+    "JUnit.TransferServiceTest.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_InsufficientFunds.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_RecipientNotFound.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor": "Run",
+    "JUnit.UserIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithDateOfBirthFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithEmailFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithEmptyFilter_ShouldReturnAllUsers.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithPhoneFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_WhenUserExists_ReturnsUserDto.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException.executor": "Run",
+    "JUnit.ValidationUtilTest.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithEmptyEmailsAndPhones_ShouldNotThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidEmailFormat_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidPhoneFormat_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithNullEmailsAndPhones_ShouldNotThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongEmail_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongPhone_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithValidData_ShouldNotThrowException.executor": "Run",
     "Maven.pioneerpixeltest [clean,package].executor": "Run",
     "Maven.pioneerpixeltest [clean].executor": "Run",
     "Maven.pioneerpixeltest [package].executor": "Run",
@@ -85,9 +125,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "D:/work/pioneerPixelTest/src/main/resources/db/changelog",
+    "Spring Boot.PioneerpixeltestApplication.executor": "Run",
+    "git-widget-placeholder": "add-tests",
+    "last_opened_file_path": "D:/work/pioneerPixelTest/src/test/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,14 +151,97 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\pioneerPixelTest\src\test\resources" />
       <recent name="D:\work\pioneerPixelTest\src\main\resources\db\changelog" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/changelog" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="by.pioneerpixeltest.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserServiceIntegrationTest">
+    <configuration name="UserServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithNotExistEmailFilter_ShouldReturnUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PioneerpixeltestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="graalvm-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -135,6 +258,15 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceIntegrationTest" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -164,6 +296,9 @@
       <workItem from="1747226035441" duration="5038000" />
       <workItem from="1747231112373" duration="5910000" />
       <workItem from="1747297111317" duration="359000" />
+      <workItem from="1747310039197" duration="1242000" />
+      <workItem from="1747311302498" duration="2078000" />
+      <workItem from="1747313402296" duration="4116000" />
     </task>
     <task id="LOCAL-00001" summary="modify swagger config">
       <option name="closed" value="true" />

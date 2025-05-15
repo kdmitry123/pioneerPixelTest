@@ -185,7 +185,7 @@ databaseChangeLog:
               INSERT INTO public.users (id, name, date_of_birth, password)
               VALUES ('74dc8f91-0a88-4ad9-8c2d-8da117b5c3e9', 'test26', '1990-05-13', 'test');
               INSERT INTO public.users (id, name, date_of_birth, password)
-              VALUES ('48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 'test27', '1990-05-13', 'test');
+              VALUES ('48b7e652-c4d5-4ecf-9cfe-4c6903e10f58', 'test27', '1990-05-14', 'test');
 
   - changeSet:
       id: insert-account-data
