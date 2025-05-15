@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/util/ValidationUtilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/TransferServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +78,17 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Docker.compose.yaml: Compose Deployment.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_InsufficientFunds.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_RecipientNotFound.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor": "Run",
+    "JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserExists_ReturnsUserDto.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException.executor": "Run",
     "JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException.executor": "Run",
     "JUnit.ValidationUtilTest.executor": "Run",
     "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithEmptyEmailsAndPhones_ShouldNotThrowException.executor": "Run",
     "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidEmailFormat_ShouldThrowException.executor": "Run",
@@ -135,8 +141,8 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException">
-    <configuration name="UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TransferServiceTest">
+    <configuration name="TransferServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -145,14 +151,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="getUserById_WhenUserDoesNotExist_ThrowsException" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransferServiceTest.transferMoney_InsufficientFunds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
+      <option name="METHOD_NAME" value="transferMoney_InsufficientFunds" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransferServiceTest.transferMoney_RecipientNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -161,14 +182,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUser_WhenInvalidData_ThrowsUserValidationException" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
+      <option name="METHOD_NAME" value="transferMoney_RecipientNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransferServiceTest.transferMoney_SenderNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -177,14 +198,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
+      <option name="METHOD_NAME" value="transferMoney_SenderNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransferServiceTest.transferMoney_SuccessfulTransfer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -193,24 +214,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pioneerpixeltest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUser_WhenUserNotFound_ThrowsUserValidationException" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
+      <option name="METHOD_NAME" value="transferMoney_SuccessfulTransfer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -234,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException" />
-        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException" />
-        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException" />
-        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
-        <item itemvalue="JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException" />
+        <item itemvalue="JUnit.TransferServiceTest" />
+        <item itemvalue="JUnit.TransferServiceTest.transferMoney_RecipientNotFound" />
+        <item itemvalue="JUnit.TransferServiceTest.transferMoney_SenderNotFound" />
+        <item itemvalue="JUnit.TransferServiceTest.transferMoney_InsufficientFunds" />
+        <item itemvalue="JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer" />
       </list>
     </recent_temporary>
   </component>
@@ -270,7 +275,8 @@
       <workItem from="1747226035441" duration="5038000" />
       <workItem from="1747231112373" duration="5910000" />
       <workItem from="1747297111317" duration="359000" />
-      <workItem from="1747310039197" duration="715000" />
+      <workItem from="1747310039197" duration="1242000" />
+      <workItem from="1747311302498" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary="modify swagger config">
       <option name="closed" value="true" />
