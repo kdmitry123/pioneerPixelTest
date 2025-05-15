@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/BalanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/BalanceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +25,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
@@ -88,9 +84,10 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/home/neshta/pioneerPixelTest/src/main/resources/db/changelog",
+    "last_opened_file_path": "D:/work/pioneerPixelTest/src/main/resources/db/changelog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,6 +111,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\pioneerPixelTest\src\main\resources\db\changelog" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/changelog" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -167,6 +165,15 @@
       <workItem from="1747231112373" duration="5910000" />
       <workItem from="1747297111317" duration="359000" />
     </task>
+    <task id="LOCAL-00001" summary="modify swagger config">
+      <option name="closed" value="true" />
+      <created>1747309165706</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747309165706</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +189,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modify swagger config" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify swagger config" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -17,9 +17,19 @@ Swagger page http://localhost:8080/swagger-ui/index.html#/
   "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZWE4MWYzZS1jMjYwLTQ2ZTMtOGVjYi1hY2RjMzY2NGIxYzciLCJpYXQiOjE3NDcyOTc0NzcsImV4cCI6MTc0NzM4Mzg3N30.nYKIGKH3O1_V57xXBpu6aaisJ-5uAclpRACbv7Zrs0s"
 }
 ```
-Время жизни токена 24 часа.
+Время жизни токена 24 часа. Устанавливается в application.yml:
+```yaml
+jwt:
+  secret-key: secret
+  expiration-time: 86400000
+```
 
 Эндпоинты /api/auth/login и GET /api/users/** публичные.
 
 Для вызова PUT/POST эндпоинтов в хидерах запроса в Authorization нужно передавать данный токен.
 
+Периодичность автоматического увеличения баланса (по умолчанию установлено на 30 секунд) устанавливается в application.yml:
+```yaml
+balance:
+  increase-period: 30      # указывается количество секунд
+```

@@ -29,7 +29,7 @@ public class BalanceServiceImpl implements BalanceService {
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private final UserService userService;
 
-    @Value("${increase-balances.period:30}")
+    @Value("${balance.increase-period:30}")
     private Integer period;
 
     @PostConstruct
