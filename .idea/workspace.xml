@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/UserServiceTestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/util/UserCacheUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/util/UserCacheUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/UserServiceTestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/UserServiceTestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -39,8 +44,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="add-tests" />
-                    <option name="lastUsedInstant" value="1747310692" />
+                    <option name="branchName" value="add-mapper" />
+                    <option name="lastUsedInstant" value="1747318109" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
@@ -117,6 +122,7 @@
     "Maven.pioneerpixeltest [clean,package].executor": "Run",
     "Maven.pioneerpixeltest [clean].executor": "Run",
     "Maven.pioneerpixeltest [package].executor": "Run",
+    "Maven.pioneerpixeltest [test].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -126,7 +132,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "Spring Boot.PioneerpixeltestApplication.executor": "Run",
-    "git-widget-placeholder": "add-tests",
+    "git-widget-placeholder": "add-mapper",
     "last_opened_file_path": "D:/work/pioneerPixelTest/src/test/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -162,7 +168,37 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceIntegrationTest">
+  <component name="RunManager" selected="Spring Boot.PioneerpixeltestApplication">
+    <configuration name="BalanceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransferServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
@@ -178,7 +214,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -187,14 +223,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -203,40 +238,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithNotExistEmailFilter_ShouldReturnUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pioneerpixeltest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pioneerpixeltest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -261,10 +264,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserServiceIntegrationTest" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" />
+        <item itemvalue="JUnit.BalanceServiceTest" />
+        <item itemvalue="JUnit.TransferServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
       </list>
     </recent_temporary>
   </component>

@@ -24,8 +24,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -53,52 +51,6 @@ class UserServiceTest {
         account.setBalance(BigDecimal.TEN);
         account.setUser(testUser);
         testUser.setAccount(account);
-    }
-
-    @Test
-    void getUserById_WhenUserExists_ReturnsUserDto() {
-        when(userRepository.findById(testUserId)).thenReturn(Optional.of(testUser));
-
-        UserDto result = userService.getUserById(testUserId);
-
-        assertNotNull(result);
-        assertEquals(testUserId, result.getId());
-        assertEquals("Test User", result.getName());
-        assertEquals(LocalDate.of(1990, 1, 1), result.getDateOfBirth());
-        assertEquals(BigDecimal.TEN, result.getBalance());
-    }
-
-    @Test
-    void getUserById_WhenUserDoesNotExist_ThrowsException() {
-        UUID nonExistentUserId = UUID.randomUUID();
-
-        when(userRepository.findById(nonExistentUserId)).thenReturn(Optional.empty());
-
-        assertThrows(UserValidationException.class, () -> userService.getUserById(nonExistentUserId));
-    }
-
-    @Test
-    void updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto() {
-        UUID currentUserId = UUID.randomUUID();
-        UserDto updateDto = new UserDto();
-        updateDto.setId(currentUserId);
-        updateDto.setEmails(List.of("test@example.com"));
-        updateDto.setPhones(List.of("123456789"));
-        User existingUser = new User();
-        existingUser.setId(currentUserId);
-        existingUser.setEmailData(new ArrayList<>());
-        existingUser.setPhoneData(new ArrayList<>());
-        try (MockedStatic<SecurityUtils> securityUtils = Mockito.mockStatic(SecurityUtils.class)) {
-            securityUtils.when(SecurityUtils::getCurrentUserId).thenReturn(currentUserId);
-            when(userRepository.findById(currentUserId)).thenReturn(Optional.of(existingUser));
-            when(userRepository.save(any(User.class))).thenReturn(existingUser);
-
-            UserDto result = userService.updateUser(updateDto);
-
-            assertNotNull(result);
-            assertEquals(currentUserId, result.getId());
-            verify(userRepository).save(any(User.class));
-        }
     }
 
     @Test

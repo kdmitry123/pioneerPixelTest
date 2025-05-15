@@ -13,9 +13,10 @@ import org.springframework.stereotype.Component;
 public class UserCacheUtil {
     private final UserRepository userRepository;
     private final CacheManager cacheManager;
+    private final UserMapper userMapper;
 
     public UserDto saveUser(User user) {
-        UserDto dto = UserMapper.convertToDto(userRepository.save(user));
+        UserDto dto = userMapper.convertToDto(userRepository.save(user));
         updateUserInCache(dto);
         return dto;
     }

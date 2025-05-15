@@ -31,6 +31,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
     @Transactional
@@ -45,14 +46,14 @@ public class UserServiceImpl implements UserService {
                     log.info("User with id = {} not found", userDto.getId());
                     return new UserValidationException("User not found");
                 });
-        return UserMapper.convertToDto(updateUserFields(user, userDto));
+        return userMapper.convertToDto(updateUserFields(user, userDto));
     }
 
     @Cacheable(value = "users", key = "#id")
     @Transactional
     public UserDto getUserById(UUID id) {
         return userRepository.findById(id)
-                .map(UserMapper::convertToDto)
+                .map(userMapper::convertToDto)
                 .orElseThrow(() -> new UserValidationException("User not found"));
     }
 
@@ -60,7 +61,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable) {
         return userRepository.findAll(UserSpecification.userFilter(searchDto), pageable)
-                .map(UserMapper::convertToDto);
+                .map(userMapper::convertToDto);
     }
 
     private User updateUserFields(User user, UserDto userDto) {

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -66,10 +67,10 @@ public class BalanceServiceImpl implements BalanceService {
                 increasedBalance = new BigDecimal("0.1");
             }
             if (increasedBalance.compareTo(maxBalance) <= 0) {
-                user.getAccount().setBalance(increasedBalance);
+                user.getAccount().setBalance(increasedBalance.setScale(2, RoundingMode.HALF_UP));
                 userCacheUtil.saveUser(user);
                 log.info("Increased balance for user {}: {} -> {}",
-                        user.getId(), currentBalance, increasedBalance);
+                        user.getId(), currentBalance, increasedBalance.setScale(2, RoundingMode.HALF_UP));
             } else {
                 log.info("Balance increase skipped for user {} - would exceed maximum",
                         user.getId());
