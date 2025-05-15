@@ -1,11 +1,14 @@
 package by.pioneerpixeltest.service;
 
 import by.pioneerpixeltest.PostgresTestContainer;
+import by.pioneerpixeltest.UserServiceTestConfig;
 import by.pioneerpixeltest.dao.dto.UserDto;
 import by.pioneerpixeltest.dao.dto.UserSearchDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,7 +18,9 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Import(UserServiceTestConfig.class)
 class UserServiceIntegrationTest extends PostgresTestContainer {
     @Autowired
     private UserService userService;
@@ -157,5 +162,4 @@ class UserServiceIntegrationTest extends PostgresTestContainer {
         assertTrue(result.getContent().isEmpty());
         assertEquals(0, result.getTotalElements());
     }
-
 }
