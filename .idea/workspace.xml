@@ -168,7 +168,7 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceIntegrationTest">
+  <component name="RunManager" selected="Spring Boot.PioneerpixeltestApplication">
     <configuration name="BalanceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
