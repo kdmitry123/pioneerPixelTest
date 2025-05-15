@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
     public UserDto getUserById(UUID id) {
         return userRepository.findById(id)
                 .map(UserMapper::convertToDto)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserValidationException("User not found"));
     }
 
     @Override

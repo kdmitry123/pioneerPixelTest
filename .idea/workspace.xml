@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config" />
+    <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/util/ValidationUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,8 +41,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="balance-transfer" />
-                    <option name="lastUsedInstant" value="1747298272" />
+                    <option name="branchName" value="add-tests" />
+                    <option name="lastUsedInstant" value="1747310692" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
@@ -74,6 +79,18 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Docker.compose.yaml: Compose Deployment.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor": "Run",
+    "JUnit.UserServiceTest.getUserById_WhenUserExists_ReturnsUserDto.executor": "Run",
+    "JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto.executor": "Run",
+    "JUnit.ValidationUtilTest.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithEmptyEmailsAndPhones_ShouldNotThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidEmailFormat_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidPhoneFormat_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithNullEmailsAndPhones_ShouldNotThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongEmail_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongPhone_ShouldThrowException.executor": "Run",
+    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithValidData_ShouldNotThrowException.executor": "Run",
     "Maven.pioneerpixeltest [clean,package].executor": "Run",
     "Maven.pioneerpixeltest [clean].executor": "Run",
     "Maven.pioneerpixeltest [package].executor": "Run",
@@ -86,7 +103,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "add-tests",
     "last_opened_file_path": "D:/work/pioneerPixelTest/src/main/resources/db/changelog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -118,7 +135,87 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException">
+    <configuration name="UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="getUserById_WhenUserDoesNotExist_ThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="updateUser_WhenInvalidData_ThrowsUserValidationException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="updateUser_WhenUserNotFound_ThrowsUserValidationException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PioneerpixeltestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="graalvm-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -135,6 +232,15 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException" />
+        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException" />
+        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException" />
+        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
+        <item itemvalue="JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -164,6 +270,7 @@
       <workItem from="1747226035441" duration="5038000" />
       <workItem from="1747231112373" duration="5910000" />
       <workItem from="1747297111317" duration="359000" />
+      <workItem from="1747310039197" duration="715000" />
     </task>
     <task id="LOCAL-00001" summary="modify swagger config">
       <option name="closed" value="true" />

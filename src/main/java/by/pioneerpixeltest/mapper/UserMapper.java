@@ -5,6 +5,8 @@ import by.pioneerpixeltest.dao.entity.EmailData;
 import by.pioneerpixeltest.dao.entity.PhoneData;
 import by.pioneerpixeltest.dao.entity.User;
 
+import java.math.BigDecimal;
+
 public class UserMapper {
 
     private UserMapper() {
@@ -21,7 +23,7 @@ public class UserMapper {
         dto.setPhones(user.getPhoneData().stream()
                 .map(PhoneData::getPhone)
                 .toList());
-        dto.setBalance(user.getAccount().getBalance());
+        dto.setBalance(user.getAccount() != null ? user.getAccount().getBalance() : BigDecimal.ZERO);
         return dto;
     }
 }
