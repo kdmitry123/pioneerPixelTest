@@ -36,8 +36,8 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**").permitAll()
                         .requestMatchers(
-                                "PUT", "/api/users",
-                                "POST", "/api/users/transfer/**").authenticated()
+                                "PUT", "/api/users/**",
+                                "POST", "/api/transfers/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

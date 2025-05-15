@@ -4,6 +4,7 @@ package by.pioneerpixeltest.service.impl;
 import by.pioneerpixeltest.dao.entity.User;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.BalanceService;
+import by.pioneerpixeltest.service.UserService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.transaction.Transactional;
@@ -26,12 +27,12 @@ public class BalanceServiceImpl implements BalanceService {
     private final Map<UUID, BigDecimal> initialBalances = new ConcurrentHashMap<>();
     private final UserRepository userRepository;
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @PostConstruct
     public void init() {
         userRepository.findAll().forEach(this::registerNewUser);
-        scheduler.scheduleAtFixedRate(this::increaseBalances, 0, 10, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(this::increaseBalances, 0, 30, TimeUnit.MINUTES);
     }
 
     @PreDestroy
