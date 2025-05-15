@@ -1,5 +1,0 @@
-databaseChangeLog:
-  - logicalFilePath: no-path
-  - include:
-      file: 001_create_tables.yaml
-      relativeToChangelogFile: true
