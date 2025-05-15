@@ -10,6 +10,7 @@ import by.pioneerpixeltest.exception.UserValidationException;
 import by.pioneerpixeltest.mapper.UserMapper;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.UserService;
+import by.pioneerpixeltest.util.SecurityUtils;
 import by.pioneerpixeltest.util.UserSpecification;
 import by.pioneerpixeltest.util.ValidationUtil;
 import jakarta.transaction.Transactional;
@@ -19,6 +20,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -35,6 +37,9 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @CachePut(value = "users", key = "#userDto.id")
     public UserDto updateUser(UserDto userDto) {
+        if (!SecurityUtils.getCurrentUserId().equals(userDto.getId())) {
+            throw new AccessDeniedException("You can only update your own data");
+        }
         ValidationUtil.validateUserDataForUpdate(userDto);
         User user = userRepository.findById(userDto.getId())
                 .orElseThrow(() -> {
@@ -45,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void transferMoney(UUID fromUserId, UUID toUserId, BigDecimal amount) {
+    public void transferMoney(UUID toUserId, BigDecimal amount) {
 
     }
 
