@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/BalanceServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/PostgresTestContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/dao/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/dao/dto/UserDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +76,8 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Docker.compose.yaml: Compose Deployment.executor": "Run",
+    "JUnit.BalanceServiceTest.executor": "Run",
+    "JUnit.BalanceServiceTest.increaseBalances_ShouldAdjustInitialBalanceIfZero.executor": "Run",
     "JUnit.BalanceServiceTest.increaseBalances_ShouldHandleZeroBalance.executor": "Run",
     "JUnit.BalanceServiceTest.increaseBalances_ShouldIncreaseBalanceWithinLimit.executor": "Run",
     "JUnit.BalanceServiceTest.increaseBalances_ShouldNotExceedMaxBalance.executor": "Run",
@@ -84,6 +87,8 @@
     "JUnit.TransferServiceTest.transferMoney_RecipientNotFound.executor": "Run",
     "JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor": "Run",
     "JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor": "Run",
+    "JUnit.UserIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers.executor": "Run",
     "JUnit.UserServiceTest.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor": "Run",
@@ -113,7 +118,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
     "git-widget-placeholder": "add-tests",
-    "last_opened_file_path": "D:/work/pioneerPixelTest/src/main/resources/db/changelog",
+    "last_opened_file_path": "D:/work/pioneerPixelTest/src/test/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -137,14 +142,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\pioneerPixelTest\src\test\resources" />
       <recent name="D:\work\pioneerPixelTest\src\main\resources\db\changelog" />
       <recent name="$PROJECT_DIR$/src/main/resources/db/changelog" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="by.pioneerpixeltest.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BalanceServiceTest">
+  <component name="RunManager" selected="JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser">
     <configuration name="BalanceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
@@ -160,7 +169,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BalanceServiceTest.increaseBalances_ShouldAdjustInitialBalanceIfZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.getUserById_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -169,14 +178,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
-      <option name="METHOD_NAME" value="increaseBalances_ShouldAdjustInitialBalanceIfZero" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="getUserById_ShouldReturnUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BalanceServiceTest.increaseBalances_ShouldHandleZeroBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithEmptyFilter_ShouldReturnAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -185,14 +194,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
-      <option name="METHOD_NAME" value="increaseBalances_ShouldHandleZeroBalance" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithEmptyFilter_ShouldReturnAllUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BalanceServiceTest.increaseBalances_ShouldNotExceedMaxBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -201,14 +210,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
-      <option name="METHOD_NAME" value="increaseBalances_ShouldNotExceedMaxBalance" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithNameFilter_ShouldReturnMatchingUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BalanceServiceTest.increaseBalances_ShouldSetInitialBalanceForNewUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -217,8 +226,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
-      <option name="METHOD_NAME" value="increaseBalances_ShouldSetInitialBalanceForNewUser" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithNameFilter_ShouldReturnUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -242,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithEmptyFilter_ShouldReturnAllUsers" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.getUserById_ShouldReturnUser" />
         <item itemvalue="JUnit.BalanceServiceTest" />
-        <item itemvalue="JUnit.BalanceServiceTest.increaseBalances_ShouldAdjustInitialBalanceIfZero" />
-        <item itemvalue="JUnit.BalanceServiceTest.increaseBalances_ShouldSetInitialBalanceForNewUser" />
-        <item itemvalue="JUnit.BalanceServiceTest.increaseBalances_ShouldNotExceedMaxBalance" />
-        <item itemvalue="JUnit.BalanceServiceTest.increaseBalances_ShouldHandleZeroBalance" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +289,7 @@
       <workItem from="1747297111317" duration="359000" />
       <workItem from="1747310039197" duration="1242000" />
       <workItem from="1747311302498" duration="2078000" />
-      <workItem from="1747313402296" duration="1247000" />
+      <workItem from="1747313402296" duration="2677000" />
     </task>
     <task id="LOCAL-00001" summary="modify swagger config">
       <option name="closed" value="true" />
