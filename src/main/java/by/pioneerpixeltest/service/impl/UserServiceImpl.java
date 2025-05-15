@@ -29,7 +29,6 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
 
     @Override
@@ -64,6 +63,13 @@ public class UserServiceImpl implements UserService {
     public Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable) {
         return userRepository.findAll(UserSpecification.userFilter(searchDto), pageable)
                 .map(UserMapper::convertToDto);
+    }
+
+
+    @CachePut(value = "users", key = "#user.id")
+    public UserDto saveAndCacheUser(User user) {
+        User savedUser = userRepository.save(user);
+        return UserMapper.convertToDto(savedUser);
     }
 
     private User updateUserFields(User user, UserDto userDto) {
