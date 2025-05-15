@@ -1,5 +1,6 @@
 package by.pioneerpixeltest.dao.dto;
 
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.ToString;
@@ -19,5 +20,6 @@ public class UserDto implements Serializable {
     private LocalDate dateOfBirth;
     private List<String> emails;
     private List<String> phones;
+    @Digits(integer = 19, fraction = 2)
     private BigDecimal balance;
 }
