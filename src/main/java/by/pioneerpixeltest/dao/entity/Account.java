@@ -30,7 +30,7 @@ public class Account {
     @JsonBackReference
     private User user;
 
-    @Column(nullable = false, precision = 19, scale = 2)
+    @Column(name = "balance", nullable = false, precision = 19, scale = 2)
     @NotNull
     @DecimalMin(value = "0.00")
     private BigDecimal balance;

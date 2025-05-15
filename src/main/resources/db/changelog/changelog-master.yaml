@@ -3,3 +3,6 @@ databaseChangeLog:
   - include:
       file: 001_create_tables.yaml
       relativeToChangelogFile: true
+  - include:
+      file: 002_create_indexes.yaml
+      relativeToChangelogFile: true

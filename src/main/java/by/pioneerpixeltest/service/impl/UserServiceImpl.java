@@ -58,7 +58,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    @Cacheable(value = "users", key = "#searchDto.toString()")
     public Page<UserDto> searchUsers(UserSearchDto searchDto, Pageable pageable) {
         return userRepository.findAll(UserSpecification.userFilter(searchDto), pageable)
                 .map(UserMapper::convertToDto);

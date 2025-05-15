@@ -17,6 +17,7 @@ Swagger page http://localhost:8080/swagger-ui/index.html#/
   "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZWE4MWYzZS1jMjYwLTQ2ZTMtOGVjYi1hY2RjMzY2NGIxYzciLCJpYXQiOjE3NDcyOTc0NzcsImV4cCI6MTc0NzM4Mzg3N30.nYKIGKH3O1_V57xXBpu6aaisJ-5uAclpRACbv7Zrs0s"
 }
 ```
+Время жизни токена 24 часа.
 
 Эндпоинты /api/auth/login и GET /api/users/** публичные.
 

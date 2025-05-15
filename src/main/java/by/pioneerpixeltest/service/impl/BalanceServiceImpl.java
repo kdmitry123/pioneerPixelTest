@@ -1,6 +1,5 @@
 package by.pioneerpixeltest.service.impl;
 
-
 import by.pioneerpixeltest.dao.entity.User;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.BalanceService;
@@ -10,6 +9,7 @@ import jakarta.annotation.PreDestroy;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -29,10 +29,13 @@ public class BalanceServiceImpl implements BalanceService {
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private final UserService userService;
 
+    @Value("${increase-balances.period:30}")
+    private Integer period;
+
     @PostConstruct
     public void init() {
         userRepository.findAll().forEach(this::registerNewUser);
-        scheduler.scheduleAtFixedRate(this::increaseBalances, 0, 30, TimeUnit.MINUTES);
+        scheduler.scheduleAtFixedRate(this::increaseBalances, period, period, TimeUnit.SECONDS);
     }
 
     @PreDestroy
