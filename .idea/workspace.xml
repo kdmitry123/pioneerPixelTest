@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/controller/AuthControllerIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/util/UserCacheUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/util/UserCacheUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/UserServiceTestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/UserServiceTestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,15 +17,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="add-mapper" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,6 +64,9 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -79,6 +78,8 @@
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Docker.compose.yaml: Compose Deployment.executor": "Run",
+    "JUnit.AuthControllerIntegrationTest.authenticate_WithValidCredentials_ShouldReturnToken.executor": "Run",
+    "JUnit.AuthControllerIntegrationTest.executor": "Run",
     "JUnit.BalanceServiceTest.executor": "Run",
     "JUnit.BalanceServiceTest.increaseBalances_ShouldAdjustInitialBalanceIfZero.executor": "Run",
     "JUnit.BalanceServiceTest.increaseBalances_ShouldHandleZeroBalance.executor": "Run",
@@ -90,6 +91,9 @@
     "JUnit.TransferServiceTest.transferMoney_RecipientNotFound.executor": "Run",
     "JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor": "Run",
     "JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.getUserById_ExistingUser_ReturnsUser.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.getUserById_NonExistingUser_ReturnsNotFound.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.getUserById_WhenUserExists_ReturnsUser.executor": "Run",
     "JUnit.UserIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
     "JUnit.UserServiceIntegrationTest.executor": "Run",
     "JUnit.UserServiceIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
@@ -131,8 +135,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.PioneerpixeltestApplication.executor": "Run",
-    "git-widget-placeholder": "add-mapper",
+    "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
+    "git-widget-placeholder": "develop",
     "last_opened_file_path": "D:/work/pioneerPixelTest/src/test/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -168,78 +172,81 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.PioneerpixeltestApplication">
-    <configuration name="BalanceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AuthControllerIntegrationTest">
+    <configuration name="AuthControllerIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="PATTERN" value="by.pioneerpixeltest.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.controller" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.controller.AuthControllerIntegrationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransferServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthControllerIntegrationTest.authenticate_WithValidCredentials_ShouldReturnToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="PATTERN" value="by.pioneerpixeltest.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.controller" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.controller.AuthControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="authenticate_WithValidCredentials_ShouldReturnToken" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerIntegrationTest.getUserById_ExistingUser_ReturnsUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="PATTERN" value="by.pioneerpixeltest.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.controller" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.controller.UserControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="getUserById_ExistingUser_ReturnsUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerIntegrationTest.getUserById_NonExistingUser_ReturnsNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="PATTERN" value="by.pioneerpixeltest.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.controller" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.controller.UserControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="getUserById_NonExistingUser_ReturnsNotFound" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerIntegrationTest.getUserById_WhenUserExists_ReturnsUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="PATTERN" value="by.pioneerpixeltest.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.controller" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.controller.UserControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="getUserById_WhenUserExists_ReturnsUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -263,11 +270,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceIntegrationTest" />
-        <item itemvalue="JUnit.BalanceServiceTest" />
-        <item itemvalue="JUnit.TransferServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto" />
+        <item itemvalue="JUnit.AuthControllerIntegrationTest" />
+        <item itemvalue="JUnit.AuthControllerIntegrationTest.authenticate_WithValidCredentials_ShouldReturnToken" />
+        <item itemvalue="JUnit.UserControllerIntegrationTest.getUserById_NonExistingUser_ReturnsNotFound" />
+        <item itemvalue="JUnit.UserControllerIntegrationTest.getUserById_ExistingUser_ReturnsUser" />
+        <item itemvalue="JUnit.UserControllerIntegrationTest.getUserById_WhenUserExists_ReturnsUser" />
       </list>
     </recent_temporary>
   </component>
