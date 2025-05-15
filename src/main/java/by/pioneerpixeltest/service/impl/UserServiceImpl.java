@@ -23,7 +23,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -49,11 +48,6 @@ public class UserServiceImpl implements UserService {
         return UserMapper.convertToDto(updateUserFields(user, userDto));
     }
 
-    @Override
-    public void transferMoney(UUID toUserId, BigDecimal amount) {
-
-    }
-
     @Cacheable(value = "users", key = "#id")
     @Transactional
     public UserDto getUserById(UUID id) {
@@ -70,11 +64,9 @@ public class UserServiceImpl implements UserService {
                 .map(UserMapper::convertToDto);
     }
 
-
     @CachePut(value = "users", key = "#user.id")
-    public UserDto saveAndCacheUser(User user) {
-        User savedUser = userRepository.save(user);
-        return UserMapper.convertToDto(savedUser);
+    public void saveAndCacheUser(User user) {
+        userRepository.save(user);
     }
 
     private User updateUserFields(User user, UserDto userDto) {
@@ -112,5 +104,4 @@ public class UserServiceImpl implements UserService {
                 })
                 .toList());
     }
-
 }
