@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/TransferServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/util/UserCacheUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/BalanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/BalanceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/TransferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/TransferServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/pioneerpixeltest/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/TransferServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/TransferServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,61 +78,63 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Docker.compose.yaml: Compose Deployment.executor": "Run",
-    "JUnit.TransferServiceTest.transferMoney_InsufficientFunds.executor": "Run",
-    "JUnit.TransferServiceTest.transferMoney_RecipientNotFound.executor": "Run",
-    "JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor": "Run",
-    "JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor": "Run",
-    "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor": "Run",
-    "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor": "Run",
-    "JUnit.UserServiceTest.getUserById_WhenUserExists_ReturnsUserDto.executor": "Run",
-    "JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException.executor": "Run",
-    "JUnit.UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException.executor": "Run",
-    "JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto.executor": "Run",
-    "JUnit.UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException.executor": "Run",
-    "JUnit.ValidationUtilTest.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithEmptyEmailsAndPhones_ShouldNotThrowException.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidEmailFormat_ShouldThrowException.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidPhoneFormat_ShouldThrowException.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithNullEmailsAndPhones_ShouldNotThrowException.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongEmail_ShouldThrowException.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongPhone_ShouldThrowException.executor": "Run",
-    "JUnit.ValidationUtilTest.validateUserDataForUpdate_WithValidData_ShouldNotThrowException.executor": "Run",
-    "Maven.pioneerpixeltest [clean,package].executor": "Run",
-    "Maven.pioneerpixeltest [clean].executor": "Run",
-    "Maven.pioneerpixeltest [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
-    "git-widget-placeholder": "add-tests",
-    "last_opened_file_path": "D:/work/pioneerPixelTest/src/main/resources/db/changelog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Docker.compose.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransferServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransferServiceTest.transferMoney_InsufficientFunds.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransferServiceTest.transferMoney_RecipientNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.getUserById_WhenUserExists_ReturnsUserDto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.updateUser_WhenInvalidData_ThrowsUserValidationException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.updateUser_WhenUpdatingOtherUserData_ThrowsAccessDeniedException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.updateUser_WhenUserExistsAndDataValid_ReturnsUpdatedUserDto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.updateUser_WhenUserNotFound_ThrowsUserValidationException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithEmptyEmailsAndPhones_ShouldNotThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidEmailFormat_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithInvalidPhoneFormat_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithNullEmailsAndPhones_ShouldNotThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongEmail_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithTooLongPhone_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ValidationUtilTest.validateUserDataForUpdate_WithValidData_ShouldNotThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.pioneerpixeltest [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.pioneerpixeltest [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.pioneerpixeltest [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PioneerpixeltestApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add-tests&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/work/pioneerPixelTest/src/main/resources/db/changelog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "redis",
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;redis&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -141,7 +147,7 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TransferServiceTest">
+  <component name="RunManager" selected="JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer">
     <configuration name="TransferServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
@@ -153,22 +159,6 @@
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
       <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransferServiceTest.transferMoney_InsufficientFunds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pioneerpixeltest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.TransferServiceTest" />
-      <option name="METHOD_NAME" value="transferMoney_InsufficientFunds" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -221,6 +211,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PioneerpixeltestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="graalvm-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -239,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer" />
         <item itemvalue="JUnit.TransferServiceTest" />
+        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="JUnit.TransferServiceTest.transferMoney_RecipientNotFound" />
         <item itemvalue="JUnit.TransferServiceTest.transferMoney_SenderNotFound" />
-        <item itemvalue="JUnit.TransferServiceTest.transferMoney_InsufficientFunds" />
-        <item itemvalue="JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +281,7 @@
       <workItem from="1747231112373" duration="5910000" />
       <workItem from="1747297111317" duration="359000" />
       <workItem from="1747310039197" duration="1242000" />
-      <workItem from="1747311302498" duration="317000" />
+      <workItem from="1747311302498" duration="2078000" />
     </task>
     <task id="LOCAL-00001" summary="modify swagger config">
       <option name="closed" value="true" />

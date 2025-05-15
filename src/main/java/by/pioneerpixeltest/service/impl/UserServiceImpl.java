@@ -63,11 +63,6 @@ public class UserServiceImpl implements UserService {
                 .map(UserMapper::convertToDto);
     }
 
-    @CachePut(value = "users", key = "#user.id")
-    public void saveAndCacheUser(User user) {
-        userRepository.save(user);
-    }
-
     private User updateUserFields(User user, UserDto userDto) {
         if (userDto.getEmails() != null) {
             ValidationUtil.validateEmailExistence(userDto, userRepository);

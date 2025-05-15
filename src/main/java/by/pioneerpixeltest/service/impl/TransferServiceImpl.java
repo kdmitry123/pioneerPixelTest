@@ -1,18 +1,16 @@
 package by.pioneerpixeltest.service.impl;
 
 import by.pioneerpixeltest.dao.dto.TransferRequestDto;
-import by.pioneerpixeltest.dao.dto.UserDto;
 import by.pioneerpixeltest.dao.entity.User;
 import by.pioneerpixeltest.exception.InsufficientFundsException;
 import by.pioneerpixeltest.exception.UserValidationException;
-import by.pioneerpixeltest.mapper.UserMapper;
 import by.pioneerpixeltest.repository.UserRepository;
 import by.pioneerpixeltest.service.TransferService;
 import by.pioneerpixeltest.util.SecurityUtils;
+import by.pioneerpixeltest.util.UserCacheUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -23,7 +21,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class TransferServiceImpl implements TransferService {
     private final UserRepository userRepository;
-    private final CacheManager cacheManager;
+    private final UserCacheUtil userCacheUtil;
 
     @Override
     @Transactional
@@ -51,18 +49,7 @@ public class TransferServiceImpl implements TransferService {
     private void performTransfer(User sender, User recipient, BigDecimal amount) {
         sender.getAccount().setBalance(sender.getAccount().getBalance().subtract(amount));
         recipient.getAccount().setBalance(recipient.getAccount().getBalance().add(amount));
-
-        saveUser(sender);
-        saveUser(recipient);
+        userCacheUtil.saveUser(sender);
+        userCacheUtil.saveUser(recipient);
     }
-
-    private void saveUser(User user) {
-        UserDto dto = UserMapper.convertToDto(userRepository.save(user));
-        updateUserInCache(dto);
-    }
-
-    private void updateUserInCache(UserDto dto) {
-        cacheManager.getCache("users").put(dto.getId(), dto);
-    }
-
 }
