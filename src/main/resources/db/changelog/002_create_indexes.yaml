@@ -1,0 +1,69 @@
+databaseChangeLog:
+  - logicalFilePath: no-path
+  - changeSet:
+      id: create-index-users-name
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_users_name
+                tableName: users
+      changes:
+        - createIndex:
+            indexName: idx_users_name
+            tableName: users
+            columns:
+              - column:
+                  name: name
+
+  - changeSet:
+      id: create-index-phone-data-phone
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_phone_data_phone
+                tableName: phone_data
+      changes:
+        - createIndex:
+            indexName: idx_phone_data_phone
+            tableName: phone_data
+            columns:
+              - column:
+                  name: phone
+
+  - changeSet:
+      id: create-index-users-date-of-birth
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_users_date_of_birth
+                tableName: users
+      changes:
+        - createIndex:
+            indexName: idx_users_date_of_birth
+            tableName: users
+            columns:
+              - column:
+                  name: date_of_birth
+
+  - changeSet:
+      id: create-index-email-data-emai
+      author: test
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_email_data_emai
+                tableName: email_data
+      changes:
+        - createIndex:
+            indexName: idx_email_data_emai
+            tableName: email_data
+            columns:
+              - column:
+                  name: email
