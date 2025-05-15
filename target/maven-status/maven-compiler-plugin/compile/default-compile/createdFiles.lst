@@ -5,8 +5,10 @@ by\pioneerpixeltest\mapper\UserMapper.class
 by\pioneerpixeltest\config\SwaggerConfig.class
 by\pioneerpixeltest\dao\entity\User.class
 by\pioneerpixeltest\dao\dto\UserSearchDto.class
+by\pioneerpixeltest\service\BalanceService.class
 by\pioneerpixeltest\service\UserService.class
 by\pioneerpixeltest\dao\entity\Account.class
+by\pioneerpixeltest\service\impl\BalanceServiceImpl.class
 by\pioneerpixeltest\util\ValidationUtil.class
 by\pioneerpixeltest\exception\UserValidationException.class
 by\pioneerpixeltest\repository\UserRepository.class
