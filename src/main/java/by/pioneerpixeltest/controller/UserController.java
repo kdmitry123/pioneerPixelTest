@@ -27,7 +27,7 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUser(userDto));
     }
 
-//    @PostMapping("/{fromUserId}/transfer/{toUserId}")
+//    @PostMapping("/transfer/{toUserId}")
 //    public ResponseEntity<Void> transferMoney(
 //            @PathVariable Long fromUserId,
 //            @PathVariable Long toUserId,

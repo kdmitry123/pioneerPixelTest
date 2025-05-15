@@ -13,7 +13,7 @@ public interface UserService {
 
     UserDto updateUser(UserDto userDto);
 
-    void transferMoney(UUID fromUserId, UUID toUserId, BigDecimal amount);
+    void transferMoney(UUID toUserId, BigDecimal amount);
 
     UserDto getUserById(UUID id);
 

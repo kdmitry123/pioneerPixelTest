@@ -13,20 +13,6 @@ public class ValidationUtil {
         validateUserPhones(userDto);
     }
 
-//    private void validateUserName(UserDto userDto) {
-//        if (userDto.getName().length() > 500) {
-//            throw new UserValidationException("Name length must not exceed 500 characters");
-//        }
-//        if (userDto.getDateOfBirth() != null) {
-//            try {
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//                formatter.format(userDto.getDateOfBirth());
-//            } catch (DateTimeException e) {
-//                throw new UserValidationException("Date of birth must be in yyyy-MM-dd format");
-//            }
-//        }
-//    }
-
     private void validateUserEmails(UserDto userDto) {
         if (userDto.getEmails() != null) {
             for (String email : userDto.getEmails()) {
