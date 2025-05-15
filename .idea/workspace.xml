@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6804c8-4d77-446d-a96f-e8948ce27a3d" name="Changes" comment="modify swagger config">
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/PostgresTestContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/001_create_tables.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/001_create_tables.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/pioneerpixeltest/service/UserServiceIntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +65,9 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -88,7 +91,16 @@
     "JUnit.TransferServiceTest.transferMoney_SenderNotFound.executor": "Run",
     "JUnit.TransferServiceTest.transferMoney_SuccessfulTransfer.executor": "Run",
     "JUnit.UserIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.getUserById_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithDateOfBirthFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithEmailFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithEmptyFilter_ShouldReturnAllUsers.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser.executor": "Run",
     "JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.searchUsers_WithPhoneFilter_ShouldReturnUser.executor": "Run",
     "JUnit.UserServiceTest.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsException.executor": "Run",
     "JUnit.UserServiceTest.getUserById_WhenUserDoesNotExist_ThrowsRuntimeException.executor": "Run",
@@ -116,7 +128,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.PioneerpixeltestApplication.executor": "Debug",
+    "Spring Boot.PioneerpixeltestApplication.executor": "Run",
     "git-widget-placeholder": "add-tests",
     "last_opened_file_path": "D:/work/pioneerPixelTest/src/test/resources",
     "node.js.detected.package.eslint": "true",
@@ -153,23 +165,8 @@
       <recent name="by.pioneerpixeltest.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser">
-    <configuration name="BalanceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pioneerpixeltest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
-      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.BalanceServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceIntegrationTest.getUserById_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithDateOfBirthFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -179,13 +176,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
       <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="getUserById_ShouldReturnUser" />
+      <option name="METHOD_NAME" value="searchUsers_WithDateOfBirthFilter_ShouldReturnUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithEmptyFilter_ShouldReturnAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -195,13 +192,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
       <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithEmptyFilter_ShouldReturnAllUsers" />
+      <option name="METHOD_NAME" value="searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -211,13 +208,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
       <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithNameFilter_ShouldReturnMatchingUsers" />
+      <option name="METHOD_NAME" value="searchUsers_WithNotExistEmailFilter_ShouldReturnUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pioneerpixeltest" />
       <extension name="coverage">
         <pattern>
@@ -227,7 +224,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
       <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="searchUsers_WithNameFilter_ShouldReturnUser" />
+      <option name="METHOD_NAME" value="searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pioneerpixeltest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.pioneerpixeltest.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.pioneerpixeltest.service" />
+      <option name="MAIN_CLASS_NAME" value="by.pioneerpixeltest.service.UserServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -251,11 +264,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnUser" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithEmptyFilter_ShouldReturnAllUsers" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNameFilter_ShouldReturnMatchingUsers" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.getUserById_ShouldReturnUser" />
-        <item itemvalue="JUnit.BalanceServiceTest" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistNameFilter_ShouldReturnMatchingUsers" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithNotExistEmailFilter_ShouldReturnUser" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithMoreDateOfBirthFilter_ShouldReturnUser" />
+        <item itemvalue="JUnit.UserServiceIntegrationTest.searchUsers_WithDateOfBirthFilter_ShouldReturnUser" />
       </list>
     </recent_temporary>
   </component>
@@ -289,7 +302,7 @@
       <workItem from="1747297111317" duration="359000" />
       <workItem from="1747310039197" duration="1242000" />
       <workItem from="1747311302498" duration="2078000" />
-      <workItem from="1747313402296" duration="2677000" />
+      <workItem from="1747313402296" duration="3652000" />
     </task>
     <task id="LOCAL-00001" summary="modify swagger config">
       <option name="closed" value="true" />

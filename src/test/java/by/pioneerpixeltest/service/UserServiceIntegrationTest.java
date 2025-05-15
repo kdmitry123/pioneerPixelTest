@@ -71,4 +71,91 @@ class UserServiceIntegrationTest extends PostgresTestContainer {
         assertEquals(11, result.getTotalElements());
     }
 
+    @Test
+    void searchUsers_WithNotExistNameFilter_ShouldReturnEmptyPage() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setName("test1111");
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertTrue(result.getContent().isEmpty());
+        assertEquals(0, result.getTotalElements());
+    }
+
+    @Test
+    void searchUsers_WithPhoneFilter_ShouldReturnUser() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setPhone("312456789");
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertFalse(result.getContent().isEmpty());
+        assertEquals(1, result.getTotalElements());
+        assertEquals(UUID.fromString("fea81f3e-c260-46e3-8ecb-acdc3664b1c6"), result.getContent().getFirst().getId());
+    }
+
+    @Test
+    void searchUsers_WithNotExistPhoneFilter_ShouldReturnEmptyPage() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setPhone("34123413423423");
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertTrue(result.getContent().isEmpty());
+        assertEquals(0, result.getTotalElements());
+    }
+
+    @Test
+    void searchUsers_WithEmailFilter_ShouldReturnUser() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setEmail("juliet66@example.com");
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertFalse(result.getContent().isEmpty());
+        assertEquals(1, result.getTotalElements());
+        assertEquals(UUID.fromString("9d665638-1d7e-45fd-97d5-7acc1d8ef18f"), result.getContent().getFirst().getId());
+    }
+
+    @Test
+    void searchUsers_WithNotExistEmailFilter_ShouldReturnEmptyPage() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setEmail("defferent@example.com");
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertTrue(result.getContent().isEmpty());
+        assertEquals(0, result.getTotalElements());
+    }
+
+    @Test
+    void searchUsers_WithDateOfBirthFilter_ShouldReturnUser() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setDateOfBirth(LocalDate.of(1990, 5, 13));
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertFalse(result.getContent().isEmpty());
+        assertEquals(1, result.getTotalElements());
+        assertEquals(UUID.fromString("48b7e652-c4d5-4ecf-9cfe-4c6903e10f58"), result.getContent().getFirst().getId());
+    }
+
+    @Test
+    void searchUsers_WithMoreDateOfBirthFilter_ShouldReturnEmptyPage() {
+        UserSearchDto searchDto = new UserSearchDto();
+        searchDto.setDateOfBirth(LocalDate.of(1990, 5, 14));
+
+        Page<UserDto> result = userService.searchUsers(searchDto, Pageable.unpaged());
+
+        assertNotNull(result);
+        assertTrue(result.getContent().isEmpty());
+        assertEquals(0, result.getTotalElements());
+    }
+
 }
